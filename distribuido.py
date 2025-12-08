@@ -94,5 +94,5 @@ if __name__ == "__main__":
             print(f"{duration:.4f}s")
 
     if rank == 0:
-        write_output("distribuido", durations)
+        write_output(f"distribuido{size}", durations)
         print("--- FIM ---")

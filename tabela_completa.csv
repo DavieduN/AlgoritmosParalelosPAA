@@ -1,0 +1,36 @@
+Algoritmo,Cores,NomeCompleto,N,duration,time_seq,Speedup,Eficiencia
+Distribuido,2,Distribuido (2 Nós),16,0.003822,0.007689,2.011601,1.0058
+Distribuido,2,Distribuido (2 Nós),32,0.023218,0.050323,2.167451,1.083725
+Distribuido,2,Distribuido (2 Nós),64,0.172617,0.40465,2.344202,1.172101
+Distribuido,2,Distribuido (2 Nós),128,1.397719,2.981042,2.13279,1.066395
+Distribuido,2,Distribuido (2 Nós),256,11.521438,29.926212,2.597437,1.298719
+Distribuido,4,Distribuido (4 Nós),16,0.002423,0.007689,3.173351,0.793338
+Distribuido,4,Distribuido (4 Nós),32,0.013312,0.050323,3.780342,0.945086
+Distribuido,4,Distribuido (4 Nós),64,0.094377,0.40465,4.287574,1.071893
+Distribuido,4,Distribuido (4 Nós),128,0.797532,2.981042,3.737831,0.934458
+Distribuido,4,Distribuido (4 Nós),256,6.099751,29.926212,4.906137,1.226534
+Distribuido,8,Distribuido (8 Nós),16,0.002984,0.007689,2.576558,0.32207
+Distribuido,8,Distribuido (8 Nós),32,0.012754,0.050323,3.945719,0.493215
+Distribuido,8,Distribuido (8 Nós),64,0.08254,0.40465,4.902455,0.612807
+Distribuido,8,Distribuido (8 Nós),128,0.573932,2.981042,5.19407,0.649259
+Distribuido,8,Distribuido (8 Nós),256,4.147591,29.926212,7.215323,0.901915
+Paralelo,2,Paralelo (2 Cores),16,0.018948,0.007689,0.405787,0.202893
+Paralelo,2,Paralelo (2 Cores),32,0.030138,0.050323,1.669784,0.834892
+Paralelo,2,Paralelo (2 Cores),64,0.192585,0.40465,2.101149,1.050574
+Paralelo,2,Paralelo (2 Cores),128,1.570156,2.981042,1.898564,0.949282
+Paralelo,2,Paralelo (2 Cores),256,15.12645,29.926212,1.978403,0.989201
+Paralelo,4,Paralelo (4 Cores),16,0.01618,0.007689,0.475191,0.118798
+Paralelo,4,Paralelo (4 Cores),32,0.019408,0.050323,2.592926,0.648232
+Paralelo,4,Paralelo (4 Cores),64,0.1076,0.40465,3.760703,0.940176
+Paralelo,4,Paralelo (4 Cores),128,0.815318,2.981042,3.656292,0.914073
+Paralelo,4,Paralelo (4 Cores),256,6.858157,29.926212,4.363594,1.090898
+Paralelo,8,Paralelo (8 Cores),16,0.020745,0.007689,0.370631,0.046329
+Paralelo,8,Paralelo (8 Cores),32,0.019845,0.050323,2.535806,0.316976
+Paralelo,8,Paralelo (8 Cores),64,0.091357,0.40465,4.429323,0.553665
+Paralelo,8,Paralelo (8 Cores),128,0.634291,2.981042,4.6998,0.587475
+Paralelo,8,Paralelo (8 Cores),256,4.822004,29.926212,6.206177,0.775772
+Sequencial,1,Sequencial,16,0.007689,0.007689,1.0,1.0
+Sequencial,1,Sequencial,32,0.050323,0.050323,1.0,1.0
+Sequencial,1,Sequencial,64,0.40465,0.40465,1.0,1.0
+Sequencial,1,Sequencial,128,2.981042,2.981042,1.0,1.0
+Sequencial,1,Sequencial,256,29.926212,29.926212,1.0,1.0

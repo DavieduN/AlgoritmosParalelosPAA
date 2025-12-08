@@ -50,7 +50,7 @@ def mat_exp(a: List[List[int]], b: int, pool: Pool) -> List[List[int]]:
     return ans
 
 if __name__ == "__main__":
-    cores = 4
+    cores = int(input("How many cores will you use? "))
     print(f"--- {cores} Cores ---")
 
     durations = []
@@ -68,5 +68,5 @@ if __name__ == "__main__":
             
             print(f"{duration:.4f}s")
 
-    write_output("paralelo", durations)
+    write_output(f"paralelo{cores}", durations)
     print(f"--- END ---")
