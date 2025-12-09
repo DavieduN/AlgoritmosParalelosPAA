@@ -75,6 +75,32 @@ def calcular_metricas(df):
     
     return df_final
 
+def plot_eficiencia(df, algoritmo, filename):
+    subset = df[df['Algoritmo'] == algoritmo]
+    if subset.empty: return
+
+    plt.figure(figsize=(10, 6))
+    
+    # Plota a Eficiência
+    sns.lineplot(data=subset, x='N', y='Eficiencia', hue='Cores', palette="viridis", marker="o", linewidth=2.5)
+    
+    # Adiciona linha de referência em Y=1.0 (Ideal)
+    plt.axhline(y=1.0, color='red', linestyle='--', linewidth=1.5, alpha=0.7, label='Eficiência Ideal (1.0)')
+
+    plt.title(f"Eficiência por Core - {algoritmo}", fontsize=16)
+    plt.ylabel("Eficiência (Speedup / Cores)")
+    plt.xlabel("Tamanho da Matriz (N)")
+    plt.xticks(subset['N'].unique())
+    
+    # Garante que o eixo Y comece em 0 para melhor visualização
+    plt.ylim(bottom=0)
+    
+    plt.legend(title="Núcleos")
+    
+    plt.savefig(f"graficos/{filename}")
+    plt.close()
+    print(f"Gerado: graficos/{filename}")
+
 def plot_escalabilidade(df, algoritmo, filename):
     subset = df[df['Algoritmo'] == algoritmo]
     if subset.empty: return
@@ -185,6 +211,25 @@ def plot_detalhe_por_n(df):
         plt.close()
         print(f" -> Salvo: {filename}")
 
+def plot_overhead(df, algoritmo, filename):
+    subset = df[(df['Algoritmo'] == algoritmo) & (df['Cores'] > 1)]
+    if subset.empty: return
+
+    plt.figure(figsize=(10, 6))
+    
+    sns.lineplot(data=subset, x='N', y='Overhead_User', hue='Cores', palette="Reds", marker="X", linewidth=2.5)
+    
+    plt.title(f"Overhead Relativo [(Tn*n - T1)/T1] - {algoritmo}", fontsize=16)
+    plt.ylabel("Overhead (Fração do Tempo Sequencial)")
+    plt.xlabel("Tamanho da Matriz (N)")
+    plt.xticks(subset['N'].unique())
+    
+    plt.legend(title="Núcleos")
+    
+    plt.savefig(f"graficos/{filename}")
+    plt.close()
+    print(f"Gerado: graficos/{filename}")
+
 def main():
     os.makedirs("graficos", exist_ok=True)
     
@@ -217,6 +262,9 @@ def main():
     
     # 3. Comparação Global (LINEAR) - Bom para choque visual (Seq muito maior que Par)
     plot_comparacao_barras(stats_df, log_scale=False)
+    
+    plot_eficiencia(stats_df, "Paralelo", "eficiencia_paralelo.png")
+    plot_eficiencia(stats_df, "Distribuido", "eficiencia_distribuido.png")
 
 if __name__ == "__main__":
     main()
