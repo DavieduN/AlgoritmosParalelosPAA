@@ -114,21 +114,27 @@ def main():
     stats_df.to_csv("metricas_completas.csv", index=False)
     print("Dados salvos em 'metricas_completas.csv'")
     
+    minhas_cores = {
+        2: "red",
+        4: "green",
+        8: "blue"
+    }
+    
     for algo in ["Paralelo", "Distribuido"]:
         # 1. Gráfico da SUA FÓRMULA (Tn*n - T1)/T1
         plot_generico(stats_df, algo, 'Overhead_Formula', 
-                     "Overhead Relativo (Fórmula)", "Overhead (Fração de T1)", 
-                     f"overhead_formula_{algo}.png", "Reds")
+                     "Overhead Relativo", "Overhead (Fração de T1)", 
+                     f"overhead_formula_{algo}.png", minhas_cores)
         
         # 2. Gráfico de Tempo Absoluto (Segundos gastos à toa)
         plot_generico(stats_df, algo, 'Overhead_Time', 
                      "Custo de Overhead (Tempo)", "Segundos", 
-                     f"overhead_tempo_{algo}.png", "Oranges")
+                     f"overhead_tempo_{algo}.png", minhas_cores)
 
         # 3. Gráfico de Porcentagem (% do tempo total que é lixo)
         plot_generico(stats_df, algo, 'Overhead_Pct', 
                      "Impacto do Overhead (%)", "% do Tempo Total", 
-                     f"overhead_pct_{algo}.png", "Purples")
+                     f"overhead_pct_{algo}.png", minhas_cores)
 
 if __name__ == "__main__":
     main()
